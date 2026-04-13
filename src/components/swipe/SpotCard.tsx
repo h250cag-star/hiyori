@@ -44,7 +44,7 @@ export default function SpotCard({ spot, distanceText }: SpotCardProps) {
           </div>
         )}
         {/* カテゴリバッジ */}
-        <span className="absolute top-3 left-3 bg-white/90 text-sm font-medium px-3 py-1 rounded-full">
+        <span className="absolute top-3 left-3 bg-white text-gray-800 text-sm font-medium px-3 py-1 rounded-full shadow-sm">
           {categoryLabels[spot.category] || spot.category}
         </span>
         {/* 屋内バッジ */}
@@ -57,7 +57,12 @@ export default function SpotCard({ spot, distanceText }: SpotCardProps) {
 
       {/* 情報エリア */}
       <div className="flex-1 p-4 flex flex-col gap-2">
-        <h2 className="text-xl font-bold leading-tight">{spot.name}</h2>
+        <h2 className="text-xl font-bold leading-tight text-gray-900">{spot.name}</h2>
+
+        {/* 場所 */}
+        {spot.address && (
+          <p className="text-sm text-gray-500">📍 {spot.address}</p>
+        )}
 
         {/* 距離・料金 */}
         <div className="flex items-center gap-3 text-sm text-gray-600">
@@ -92,7 +97,7 @@ export default function SpotCard({ spot, distanceText }: SpotCardProps) {
 
         {/* レーティング */}
         {spot.rating && (
-          <div className="flex items-center gap-1 text-sm">
+          <div className="flex items-center gap-1 text-sm text-gray-700">
             <span className="text-yellow-500">★</span>
             <span className="font-medium">{spot.rating.toFixed(1)}</span>
           </div>
